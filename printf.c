@@ -12,9 +12,36 @@
 int _printf(const char *format, ...)
 {
 va_list args;
-int count;
+int count = 0;
 va_start(args, format);
-count = print_format(format, args);
+while (*format)
+{
+if (*format == '%')
+{
+format++;
+switch (*format)
+{
+case 'c':
+count += write(1, va_arg(args, int), 1);
+break;
+case 's':
+count += write(1, va_arg(args, char *), 1);
+break;
+case '%':
+count += write(1, "%", 1);
+break;
+case 'd':
+case 'i':
+count += printf(1, "%d", va_arg(args, int));
+break;
+}
+}
+else
+{
+count += write(1, format, 1);
+}
+format++;
+}
 va_end(args);
 return (count);
 }
