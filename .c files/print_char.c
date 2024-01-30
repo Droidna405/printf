@@ -9,3 +9,9 @@ int print_char(char c)
 {
 return (write(1, &c, 1));
 }
+#include <stdio.h>
+
+int main() {
+print_char("Hello, world!\n");
+return (0);
+}
