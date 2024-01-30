@@ -11,5 +11,6 @@ int print_octal(unsigned int n);
 int print_pointer(void *ptr);
 int print_format(const char *format, va_list args);
 int _printf(const char *format, ...);
+int print_char_repeat(char c, int count);
 
 #endif /* MAIN_H */
