@@ -1,5 +1,7 @@
 #include <unistd.h>
-
+#include <stdint.h>
+#include "main.h"
+#include "myprintf.h"
 /**
  * print_pointer - helper function to print pointer address for 64 bit
  * @ptr: The pointer address to be printed
@@ -8,6 +10,7 @@
  */
 int print_pointer(void *ptr)
 {
+int i;
 uintptr_t address = (uintptr_t)ptr;
 char hex_digits[] = "0123456789abcdef";
 char buffer[18];  /* Assuming a 64-bit system */
@@ -17,7 +20,6 @@ return (print_string("(nil)"));
 }
 buffer[0] = '0';
 buffer[1] = 'x';
-int i;
 for (i = 15; i >= 2; i--)
 {
 buffer[i] = hex_digits[address & 0xf];
