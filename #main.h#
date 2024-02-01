@@ -104,7 +104,7 @@ int handle_pointer(char buffer[],
 		   int flags, char padd, char extra_c, int padd_start);
 
 int handle_unsigned_(int is_negative, int ind, char buffer[],
-		    int flags, int width, int precision);
+		     int flags, int width, int precision, int size);
 
 int _printable(char);
 int hex_append(char, char[], int);
